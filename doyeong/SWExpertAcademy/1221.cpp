@@ -3,6 +3,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include<unordered_map>
 
 #define endl "\n"
 using namespace std;
@@ -23,41 +24,35 @@ int main(int argc, char** argv)
         cin >> t_num >> len;
 
         vector<int> v;
+        unordered_map<string, int> um;
+        unordered_map<string, string> um2;
+
+        um["ZRO"] = 0;
+        um["ONE"] = 1;
+        um["TWO"] = 2;
+        um["THR"] = 3;
+        um["FOR"] = 4;
+        um["FIV"] = 5;
+        um["SIX"] = 6;
+        um["SVN"] = 7;
+        um["EGT"] = 8;
+        um["NIN"] = 9;
+
+        um2["0"] = "ZRO";
+        um2["1"] = "ONE";
+        um2["2"] = "TWO";
+        um2["3"] = "THR";
+        um2["4"] = "FOR";
+        um2["5"] = "FIV";
+        um2["6"] = "SIX";
+        um2["7"] = "SVN";
+        um2["8"] = "EGT";
+        um2["9"] = "NIN";
 
         for(int i=1; i<=len; i++){
             string s;
             cin >> s;
-
-            if(s == "ZRO"){
-                v.push_back(0);
-            }
-            else if(s == "ONE"){
-                v.push_back(1);
-            }
-            else if(s == "TWO"){
-                v.push_back(2);
-            }
-            else if(s == "THR"){
-                v.push_back(3);
-            }
-            else if(s == "FOR"){
-                v.push_back(4);
-            }
-            else if(s == "FIV"){
-                v.push_back(5);
-            }
-            else if(s == "SIX"){
-                v.push_back(6);
-            }
-            else if(s == "SVN"){
-                v.push_back(7);
-            }
-            else if(s == "EGT"){
-                v.push_back(8);
-            }
-            else if(s == "NIN"){
-                v.push_back(9);
-            }
+            v.push_back(um[s]);
         }
 
         sort(v.begin(),v.end());
@@ -65,37 +60,7 @@ int main(int argc, char** argv)
         cout << "#" << test_case << endl;
 
         for(int i=0; i<len; i++){
-            if(v[i] == 0){
-                cout << "ZRO";
-            }
-            else if(v[i] == 1){
-                cout << "ONE";
-            }
-            else if(v[i] == 2){
-                cout << "TWO";
-            }
-            else if(v[i] == 3){
-                cout << "THR";
-            }
-            else if(v[i] == 4){
-                cout << "FOR";
-            }
-            else if(v[i] == 5){
-                cout << "FIV";
-            }
-            else if(v[i] == 6){
-                cout << "SIX";
-            }
-            else if(v[i] == 7){
-                cout << "SVN";
-            }
-            else if(v[i] == 8){
-                cout << "EGT";
-            }
-            else if(v[i] == 9){
-                cout << "NIN";
-            }
-            cout << " ";
+            cout << um2[to_string(v[i])] << " ";
         }
 
         cout << endl;
