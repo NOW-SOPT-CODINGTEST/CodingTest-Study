@@ -8,8 +8,7 @@ def solution(participant, completion):
     for j in completion:
         if j in dict:
             dict[j] -= 1
-    # 값이 1인것만 출력
-    for key, value in dict.items():
-        if value == 1:
-            answer = key
+    for k in dict:
+        if dict[k]==1:
+            answer = k
     return answer
