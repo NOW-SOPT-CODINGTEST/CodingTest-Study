@@ -37,7 +37,8 @@ int main(){
 
     for(int i=1; i<=N; i++){
         for(int j=1; j<=N; j++){
-            dist[i][j] = INF;
+            if(i == j) dist[i][j] = 0;
+            else dist[i][j] = INF;
         }
     }
 
